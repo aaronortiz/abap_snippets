@@ -1,0 +1,5 @@
+Sym	Text	Length	Max
+000	No idocs found	14	14
+001	Document does not exist	23	23
+002	Document number invalid	23	23
+003	IDOC(s) successfully written	28	28

@@ -1,0 +1,3 @@
+Name	Text
+P_DOCNUM	IDoc number
+P_OPEN	Open file in notepad

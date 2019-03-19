@@ -1,0 +1,40 @@
+CLASS zcl_rtts DEFINITION
+  PUBLIC
+  CREATE PUBLIC.
+  
+  PUBLIC SECTION.
+  
+    TYPE-POOLS abap.
+    
+    CLASS-METHODS dd_field_list_get_string
+      IMPORTING struct_name       TYPE string
+      RETURNING VALUE(field_list) TYPE string.
+      
+ENDCLASS.
+
+CLASS zcl_rtts IMPLEMENTATION
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Protected Method ZCL_SD_VARIABLES->DD_FIELD_LIST_GET_STRING
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] STRUCT_NAME                    TYPE        STRING
+* | [<-()] FIELD_LIST                     TYPE        STRING
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+  METHOD dd_field_list_get_string.
+
+    DATA:
+      lo_sdescr    TYPE REF TO cl_abap_structdescr,
+      ls_component TYPE abap_compdescr.
+
+    CLEAR: field_list, ls_component.
+
+    lo_sdescr ?= cl_abap_typedescr=>describe_by_name( struct_name ).
+    LOOP AT lo_sdescr->components INTO ls_component.
+      field_list = |{ field_list } { ls_component-name }|.
+    ENDLOOP.
+
+    CONDENSE field_list.
+
+  ENDMETHOD.
+
+ENDCLASS.

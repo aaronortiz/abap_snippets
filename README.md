@@ -1,2 +1,2 @@
 # abap_snippets
-Snippets of ABAP code
+Snippets of useful generic ABAP code that can be used in many projects

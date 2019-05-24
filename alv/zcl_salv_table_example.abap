@@ -16,7 +16,8 @@ CLASS zcl_salv_table_example DEFINITION
       output_tt TYPE STANDARD TABLE OF output_st WITH DEFAULT_KEY.
   
     DATA:
-      output TYPE output_tt.
+      output TYPE output_tt,
+      alv    TYPE REF TO cl_salv_table.
 
     METHODS constructor
       IMPORTING t_output.
